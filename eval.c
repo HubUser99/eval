@@ -1,21 +1,19 @@
-#include <stdio.h>
-#include "func.h"
+#include "evaluation.h"
 
-void
-evaluation(int *scores, int *marks){
+void evaluation ( const int s[], int m[] )
+{
 	int i;
 	
-	for(i = 0; (i < MAX) && (scores[i] != -1); i++){
-		if(scores[i] >= 0 && scores[i] <= 17) marks[i] = 0;
-		
-		if(scores[i] > 17 && scores[i] <= 34) marks[i] = 1;
-		
-		if(scores[i] > 34 && scores[i] <= 51) marks[i] = 2;
-		
-		if(scores[i] > 51 && scores[i] <= 68) marks[i] = 3;
-		
-		if(scores[i] > 68 && scores[i] <= 85) marks[i] = 4;
-		
-		if(scores[i] > 85 && scores[i] <= 100) marks[i] = 5;
+	for ( i = 0; i < MAX && s[ i ] != SENTINEL; ++i )
+	{
+		if		( s[ i ] >= 0 && s[ i ] < 30 ) { m[ i ] = 0; }
+		else if ( s[ i ] >= 30 && s[ i ] < 45 ) { m[ i ] = 1; }
+		else if ( s[ i ] >= 45 && s[ i ] < 60 ) { m[ i ] = 2; }
+		else if ( s[ i ] >= 60 && s[ i ] < 75 ) { m[ i ] = 3; }
+		else if ( s[ i ] >= 75 && s[ i ] < 90 ) { m[ i ] = 4; }
+		else if ( s[ i ] >= 90 && s[ i ] < 100 ) { m[ i ] = 5; }
 	}
+	m[ i ] = SENTINEL;
+
+	printf( "\nEval is done\n" );
 }

@@ -1,14 +1,12 @@
-#include <stdio.h>
-#include "func.h"
+#include "evaluation.h"
 
-int
-main(void){
-	int scores[MAX] = {-1}, marks[MAX] = {-1};
-	int statistics[6] = {-1};
+void main ()
+{
+	int scores[ MAX ], marks[ MAX ];
+	int statistics[ 6 ] = { 0, 0, 0, 0, 0, 0 };
 	
-	input_scores(scores);
-	evaluation(scores, marks);
-	classification(marks, statistics);
-	output_results(statistics);
-	return 0;	
+	input_scores( scores );
+	evaluation( scores, marks );
+	classification( marks, statistics );
+	output_results( marks, statistics );
 }

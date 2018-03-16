@@ -1,22 +1,17 @@
-#include <stdio.h>
-#include "func.h"
+#include "evaluation.h"
 
-void
-input_scores(int *scores){
-	int i, input = 0;
-	printf("Enter Scores, -1 to end:\n");
-	for(i = 0; i < MAX && input != -1; i++){
-		printf("%d: ", i + 1);
-		scanf("%d", &input);
-		scores[i] = input;
-	}
-}
-
-void
-output_results(int *statistics){
-	int i;
+void input_scores ( int s[] )
+{
+	int i,
+		input = 0;
 	
-	for(i = 0; i < 6; i++){
-		printf("%d: %d\n", i, statistics[i]);
+	printf( "\nEnter the scores or %d to end:\n\n", SENTINEL );
+	for ( i = 0; i < MAX && input != SENTINEL; ++i )
+	{
+		printf( "\t%d: ", i + 1 );
+		scanf( "%d", &input );
+		s[ i ] = input;
 	}
+	
+	printf( "\n%d scores are entered\n", i - 1 );
 }

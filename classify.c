@@ -1,18 +1,22 @@
-#include <stdio.h>
-#include "func.h"
+#include "evaluation.h"
 
-void
-classification(int *marks, int *statistics){
+void classification ( const int m[], int stat[] )
+{
 	int i;
-	for(i = 0; (i < MAX) && (marks[i] != -1); i++){
-		switch(marks[i]){
-			case 0: statistics[0]++; break;
-			case 1: statistics[1]++; break;
-			case 2: statistics[2]++; break;
-			case 3: statistics[3]++; break;
-			case 4: statistics[4]++; break;
-			case 5: statistics[5]++; break;
+	
+	for ( i = 0; i < MAX && m[ i ] != SENTINEL; ++i )
+	{
+		switch ( m[ i ] )
+		{
+			case 0: ++stat[ 0 ]; break;
+			case 1: ++stat[ 1 ]; break;
+			case 2: ++stat[ 2 ]; break;
+			case 3: ++stat[ 3 ]; break;
+			case 4: ++stat[ 4 ]; break;
+			case 5: ++stat[ 5 ]; break;
 			default: break;
 		}
 	}
+	
+	printf( "Classification is done\n" );
 }

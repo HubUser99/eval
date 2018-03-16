@@ -1,13 +1,10 @@
-OBJ = main.o eval.o getscore.o classify.o
-DEPS = func.h
+OBJ = main.o eval.o getscore.o classify.o output.o
+APPNAME = score.a
 
-APPNAME = myapp.a
-
-#link rule
 $(APPNAME) : $(OBJ)
 	gcc -o $(APPNAME) $(OBJ)
-#compiling rule
-%.o : %.c $(DEPS)
+
+%.o : %.c
 	gcc -c -o $@ $<
 
 clean :
@@ -17,4 +14,4 @@ tar :
 	tar cf project.tar *
 
 backup :
-	scp project.tar e1700698@shell.puv.fi:.
+	scp project.tar e1700684@shell.puv.fi:.
